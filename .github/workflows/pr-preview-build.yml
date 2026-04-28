@@ -1,0 +1,17 @@
+name: PR Preview - Build
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, edited]
+
+jobs:
+  build:
+    uses: WordPress/action-wp-playground-pr-preview/.github/workflows/preview-build.yml@adamziel/build-command-reusable-workflows
+    with:
+      artifacts: my-plugin=build/my-plugin.zip
+      build-command: |
+        set -euo pipefail
+        mkdir -p build dist
+        cp my-plugin.php dist/
+        date -u > dist/built-at.txt
+        ( cd dist && zip -r ../build/my-plugin.zip . )

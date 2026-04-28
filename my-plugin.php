@@ -9,7 +9,7 @@
 add_action('admin_notices', function () {
     $built = @file_get_contents(__DIR__ . '/built-at.txt') ?: '(unknown)';
     printf(
-        '<div class="notice notice-info"><p><strong>V3 Example (Simple)</strong> active. Built at: %s</p></div>',
+        '<div class="notice notice-info"><p><strong>V3 Example (Simple)</strong> active — smoke test #1. Built at: %s</p></div>',
         esc_html(trim($built))
     );
 });

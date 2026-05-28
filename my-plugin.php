@@ -13,3 +13,5 @@ add_action('admin_notices', function () {
         esc_html(trim($built))
     );
 });
+
+// Fork smoke test: v3 preview workflows.
